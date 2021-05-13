@@ -13,4 +13,6 @@ migrateup:
 migratedown:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/minibank?sslmode=disable" --verbose down
 
-.PHNOY: postgres createdb dropdb	migrateup migratedown
+sqlc:
+	sqlc generate
+.PHNOY: postgres createdb dropdb	migrateup migratedown sqlc
